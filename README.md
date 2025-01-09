@@ -38,56 +38,36 @@
   - `deleteMember.php` : 회원 삭제 기능
 
 ## 🖼️ 실행 화면 예시
-## 실행 화면 예시
 
-### 1. 메인 페이지 & 도서 목록
 <table>
 <tr>
-<td>
-<img src="result_images/홈.png" alt="메인 페이지" width="45%">
-<p align="center"><b>메인 페이지</b></p>
-<p align="center">BookMarket의 홈 화면으로, 사용자는 추천 도서를 확인하고 원하는 도서 카테고리로 이동할 수 있습니다.</p>
+<td align="center">
+<img src="result_images/홈.png" alt="메인 페이지" width="80%">
+<p>BookMarket의 홈 화면으로, 사용자는 추천 도서를 확인하고 원하는 도서 카테고리로 이동할 수 있습니다.</p>
 </td>
-<td>
-<img src="result_images/도서목록.png" alt="도서 목록" width="45%">
-<p align="center"><b>도서 목록</b></p>
-<p align="center">등록된 모든 도서를 한눈에 볼 수 있는 페이지입니다. 사용자는 도서를 클릭하여 상세 정보를 확인할 수 있습니다.</p>
+<td align="center">
+<img src="result_images/도서목록.png" alt="도서 목록" width="80%">
+<p>등록된 모든 도서를 한눈에 볼 수 있는 페이지입니다. 사용자는 도서를 클릭하여 상세 정보를 확인할 수 있습니다.</p>
 </td>
 </tr>
-</table>
-
----
-
-### 2. 도서 정보 & 장바구니
-<table>
 <tr>
-<td>
-<img src="result_images/도서정보.png" alt="도서 정보" width="45%">
-<p align="center"><b>도서 정보</b></p>
-<p align="center">선택한 도서의 상세 정보를 보여줍니다. 제목, 저자, 가격 등 주요 정보가 포함되어 있습니다.</p>
+<td align="center">
+<img src="result_images/도서정보.png" alt="도서 정보" width="80%">
+<p>선택한 도서의 상세 정보를 보여줍니다. 제목, 저자, 가격 등 주요 정보가 포함되어 있습니다.</p>
 </td>
-<td>
-<img src="result_images/장바구니.png" alt="장바구니" width="45%">
-<p align="center"><b>장바구니</b></p>
-<p align="center">장바구니에 추가된 도서들을 확인할 수 있는 페이지입니다. 사용자는 도서를 삭제하거나 구매를 진행할 수 있습니다.</p>
+<td align="center">
+<img src="result_images/장바구니.png" alt="장바구니" width="80%">
+<p>장바구니에 추가된 도서들을 확인할 수 있는 페이지입니다. 사용자는 도서를 삭제하거나 구매를 진행할 수 있습니다.</p>
 </td>
 </tr>
-</table>
-
----
-
-### 3. 로그인 & 회원 가입
-<table>
 <tr>
-<td>
-<img src="result_images/로그인.png" alt="로그인" width="45%">
-<p align="center"><b>로그인</b></p>
-<p align="center">기존 회원은 이메일과 비밀번호로 로그인할 수 있는 화면입니다.</p>
+<td align="center">
+<img src="result_images/로그인.png" alt="로그인" width="80%">
+<p>기존 회원은 이메일과 비밀번호로 로그인할 수 있는 화면입니다.</p>
 </td>
-<td>
-<img src="result_images/회원변경.png" alt="회원 가입" width="45%">
-<p align="center"><b>회원 가입</b></p>
-<p align="center">새로운 회원이 간단한 정보를 입력하여 계정을 생성할 수 있는 화면입니다.</p>
+<td align="center">
+<img src="result_images/회원변경.png" alt="회원 가입" width="80%">
+<p>새로운 회원이 간단한 정보를 입력하여 계정을 생성할 수 있는 화면입니다.</p>
 </td>
 </tr>
 </table>
