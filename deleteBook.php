@@ -1,26 +1,41 @@
 <?php
-$id = $_GET['id'];
+// GET 요청에서 도서 ID 가져오기
+$id = $_GET['id'] ?? null;
+
+// 도서 ID가 없는 경우 오류 메시지 출력 후 종료
+if (!$id) {
+    die("도서 ID가 제공되지 않았습니다.");
+}
 
 require "./dbconn.php";
 
-#SQL 쿼리를 통해 book 테이블에서 b_id가 $id와 일치하는 행을 조회
-$sql = "SELECT * FROM book WHERE b_id = '$id'";
+try {
+    // Prepared Statement로 SQL 인젝션 방지
+    $stmt = $conn->prepare("SELECT * FROM book WHERE b_id = ?");
+    $stmt->bind_param("s", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-$result = mysqli_query($conn, $sql);
+    // 도서가 존재하지 않을 경우 메시지 출력 후 종료
+    if ($result->num_rows <= 0) {
+        echo "일치하는 도서가 없습니다.";
+    } else {
+        // 도서 삭제
+        $stmt = $conn->prepare("DELETE FROM book WHERE b_id = ?");
+        $stmt->bind_param("s", $id);
+        $stmt->execute();
+    }
 
-#도서 조회
-#mysqli_num_rows() : 결과 행의 개수를 반환. 도서가 존재하지 않으면 메시지를 출력
-if(mysqli_num_rows($result) <= 0)
-    echo "일치하는 도서가 없습니다.";
-
-#도서 삭제
-#delete 쿼리를 사용하요 book 테이블에서 b_id가 $id와 일치하는 행을 삭제
-else {
-    $sql = "DELETE FROM book WHERE b_id = '$id'";
-    $result = mysqli_query($conn, $sql);
+    $stmt->close();
+} catch (Exception $e) {
+    // 에러 메시지 출력
+    die("도서 삭제 중 오류 발생: " . $e->getMessage());
+} finally {
+    // 데이터베이스 연결 닫기
+    $conn->close();
 }
-mysqli_close($conn);
 
-#삭제 작업 완료 후 editsBooks.php로 이동하며, URL에 edit=delete를 추가하여 삭제 작업임을 전달.
-Header("Location:editsBooks.php?edit=delete");
+// 삭제 완료 후 리디렉션
+header("Location: editsBooks.php?edit=delete");
+exit();
 ?>

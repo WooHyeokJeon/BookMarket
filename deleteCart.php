@@ -1,28 +1,22 @@
 <?php
-    #세션에 저장된 장바구니 데이터를 완전히 삭제하는 기능을 담당
+// 세션 시작
+session_start();
 
-    #기존 세션 데이터 불러옴
-    session_start();
+// URL을 통해 cartId 값을 가져옴
+$cartId = $_GET["cartId"] ?? null;
 
-    #URL을 통해 cartId 값을 가져옴 -> cartId가 비어 있거나 null이면 cart.php로 리디렉션
-    $cartId = $_GET["cartId"];
-    if($cartId == null || $cartId ==""){
-        header("Location:cart.php");
-        return;
-    }
+// cartId가 비어 있거나 null인 경우 cart.php로 리디렉션
+if (!$cartId) {
+    header("Location: cart.php");
+    exit();
+}
 
-    #현재 세션을 완전히 종료하고, 세션에 저장된 모든 데이터를 삭제
-    #아마도 : 장바구니뿐 아니라 해당 세션에 저장된 정보 모두 삭제됨. (로그인도 !)
-    #회원가입 정보가 사라지는게 아니라 로그아웃이 되어버림
+// 장바구니 데이터만 삭제하도록 변경
+if (isset($_SESSION["cartlist"])) {
+    unset($_SESSION["cartlist"]); // 장바구니 데이터 삭제
+}
 
-    /*
-    // 장바구니 데이터 확인 및 삭제
-        if (isset($_SESSION["cartlist"])) {
-            unset($_SESSION["cartlist"]); // 장바구니 데이터만 삭제
-        }
-    이렇게 바꾸면 책만 삭제
-    */
-    
-    session_destroy();
-    header("Location:cart.php");
+// 장바구니 삭제 후 cart.php로 리디렉션
+header("Location: cart.php");
+exit();
 ?>

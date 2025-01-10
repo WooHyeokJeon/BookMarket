@@ -1,38 +1,30 @@
 <?php
-    session_start();
-    $bookId = $_GET["id"];
+session_start();
 
-    if($bookId == null || $bookId =="") {
-        header("Location:books.php");
-        return;
-    }
+// URL 매개변수에서 도서 ID를 가져옴
+$bookId = $_GET["id"] ?? '';
 
-    require "./model.php";
-
-    $book = getBookById($bookId);
-
-    if($book == null) {
-        header("Location:exceptionNobookId.php");
-    }
-
-    #장바구니에서 도서 제거
-
-    #cartlist 세션에서 현재 장바구니 항목들을 가져옴
-    #장바구니 항목 수를 $count로 지정
-    $count = count($_SESSION["cartlist"]);
-    $goodsList = $_SESSION["cartlist"];
-
-    for ($i = 0; $i < $count; $i++) {
-
-        #key(goodsList)를 사용해 현재 항목의 키(goodsid, 즉 도서 ID를 가져옴)
-        $goodsid = key($goodsList);
-        //$goods = $goodsList[$goodsid];
-
-        #$goodid == $bookId 이면 해당 항목을 장바구니에서 제거
-        if($goodsid==$bookId) {
-            unset($_SESSION["cartlist"][$bookId]);
-        }
-        next($goodsList);
-    }
+if (empty($bookId)) {
     header("Location:cart.php");
+    exit();
+}
+
+require "./model.php";
+
+// 도서 ID로 도서 정보 조회
+$book = getBookById($bookId);
+
+if ($book == null) {
+    header("Location:exceptionNoBookId.php");
+    exit();
+}
+
+// 장바구니에서 해당 도서 제거
+if (isset($_SESSION["cartlist"][$bookId])) {
+    unset($_SESSION["cartlist"][$bookId]);
+}
+
+// 제거 후 장바구니 페이지로 리디렉션
+header("Location:cart.php");
+exit();
 ?>

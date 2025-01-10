@@ -1,20 +1,31 @@
 <?php
-    $cartId = $_GET["cartId"];
+// 장바구니 ID 확인
+$cartId = $_GET["cartId"] ?? null;
 
-    #setcookie 함수는 php에서 사용자 브라우저에 쿠키를 설정하기 위해 사용
-    #쿠키는 클라이언트 측에 저장, 이후 요청 시 서버에 자동으로 전송
+// cartId가 비어 있으면 에러 페이지로 리디렉션
+if (!$cartId) {
+    header("Location:exceptionNoPage.php");
+    exit();
+}
 
-    #매개 변수 :    
-    #Shipping_cartId : 쿠키 이름. 브라우저에서 쿠키 식별하기 위해 사용
-    #$_POST["cartId"] : 쿠키에 저장할 값. 폼에서 post 방식으로 전송한 값들 넣기 (name에 있는 거?)
-    #time()+24*60*60 : 24시간 후에 만료 되도록
-    
-    setcookie("Shipping_cartId", $_POST["cartId"], time()+24*60*60);
-    setcookie("Shipping_name", $_POST["name"], time()+24*60*60);
-    setcookie("Shipping_shippingDate", $_POST["shippingDate"], time()+24*60*60);
-    setcookie("Shipping_country", $_POST["country"], time()+24*60*60);
-    setcookie("Shipping_zipCode", $_POST["zipCode"], time()+24*60*60);
-    setcookie("Shipping_addressName", $_POST["addressName"], time()+24*60*60);
+// 쿠키 만료 시간 설정 (24시간)
+$cookieExpire = time() + 24 * 60 * 60;
 
-    header("Location:orderConfirmation.php");
+// 쿠키 설정
+$fields = [
+    "Shipping_cartId" => $_POST["cartId"] ?? "",
+    "Shipping_name" => $_POST["name"] ?? "",
+    "Shipping_shippingDate" => $_POST["shippingDate"] ?? "",
+    "Shipping_country" => $_POST["country"] ?? "",
+    "Shipping_zipCode" => $_POST["zipCode"] ?? "",
+    "Shipping_addressName" => $_POST["addressName"] ?? ""
+];
+
+foreach ($fields as $key => $value) {
+    setcookie($key, htmlspecialchars($value, ENT_QUOTES, 'UTF-8'), $cookieExpire);
+}
+
+// 주문 확인 페이지로 리디렉션
+header("Location:orderConfirmation.php");
+exit();
 ?>
