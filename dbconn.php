@@ -1,12 +1,15 @@
 <?php
-// 데이터베이스 연결
-$conn = mysqli_connect("localhost", "root", "", "class2");
+$host = "DB_HOST";  
+$user = "DB_USER";        
+$pass = "DB_PASSWORD";  
+$dbname = "DB_NAME";
 
-// 연결 실패 시 에러 메시지 출력 후 종료
+$conn = mysqli_connect($host, $user, $pass, $dbname);
+
 if (!$conn) {
     die("데이터베이스 연결 실패: " . mysqli_connect_error());
 }
 
-// 필요 시 디버깅용 메시지 출력 가능 (주석 처리로 유지)
-// echo "데이터베이스 연결 성공";
+// 한글 깨짐 방지 설정
+mysqli_set_charset($conn, "utf8mb4");
 ?>
