@@ -11,7 +11,7 @@
   <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/bookmarket/welcome.php">                 
+            <a class="navbar-brand" href="/class2/bookmarket/welcome.php">                 
                 <i class="fa-solid fa-book-open"></i>
                 <span class="fs-5">BookMarket</span> 
             </a>
@@ -22,22 +22,22 @@
                 
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/bookmarket/welcome.php">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/class2/bookmarket/welcome.php">Home</a>
                 </li>                      
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/bookmarket/books.php">도서목록</a>
+                    <a class="nav-link active" aria-current="page" href="/class2/bookmarket/books.php">도서목록</a>
                 </li> 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/bookmarket/addBook.php">도서등록</a>
+                    <a class="nav-link active" aria-current="page" href="/class2/bookmarket/addBook.php">도서등록</a>
                 </li> 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/bookmarket/editsBooks.php?edit=update">도서수정</a>
+                    <a class="nav-link active" aria-current="page" href="/class2/bookmarket/editsBooks.php?edit=update">도서수정</a>
                 </li> 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/bookmarket/editsBooks.php?edit=delete">도서삭제</a>
+                    <a class="nav-link active" aria-current="page" href="/class2/bookmarket/editsBooks.php?edit=delete">도서삭제</a>
                 </li> 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/bookmarket/cart.php">장바구니</a>
+                    <a class="nav-link active" aria-current="page" href="/class2/bookmarket/cart.php">장바구니</a>
                 </li> 
             </ul>
 
@@ -46,11 +46,13 @@
                     if (empty($sessionID) || $sessionID == null) {
                 ?>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/bookmarket/member/loginMember.php">로그인</a>
+                        <a class="nav-link active" aria-current="page"
+                        href="/class2/bookmarket/member/loginMember.php">로그인</a>
                     </li>
 
                     <li class="nav-item">    
-                        <a class="nav-link active" aria-current="page" href="/bookmarket/member/addMember.php">회원가입</a>
+                        <a class="nav-link active" aria-current="page"
+                        href="/class2/bookmarket/member/addMember.php">회원가입</a>
                     </li>
                 <?php
                     } else { //로그인 상태
@@ -59,11 +61,13 @@
                     <b>[<?=$sessionID;?>]님</b>
                 </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/bookmarket/member/logoutMember.php">로그아웃</a>
+                        <a class="nav-link active" aria-current="page"
+                        href="/class2/bookmarket/member/logoutMember.php">로그아웃</a>
                     </li>
 
                     <li class="nav-item">    
-                        <a class="nav-link active" aria-current="page" href="/bookmarket/member/updateMember.php">회원수정</a>
+                        <a class="nav-link active" aria-current="page"
+                        href="/class2/bookmarket/member/updateMember.php">회원수정</a>
                     </li>
                     <?php
                         }
