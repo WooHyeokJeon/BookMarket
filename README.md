@@ -43,6 +43,20 @@ BookMarket은 아래 링크를 통해 바로 체험할 수 있습니다:
 
 ---
 
+## 🖼️ 실행 화면 예시
+
+<table> <tr> <td align="center"> <b>홈 화면</b><br> <img src="result_images/홈.png" alt="메인 페이지" width="80%"> <p>BookMarket의 홈 화면으로, 사용자는 추천 도서를 확인하고 원하는 도서 카테고리로 이동할 수 있습니다.</p> </td> <td align="center"> <b>도서 목록</b><br> <img src="result_images/도서목록.png" alt="도서 목록" width="80%"> <p>등록된 모든 도서를 한눈에 볼 수 있는 페이지입니다. 사용자는 도서를 클릭하여 상세 정보를 확인할 수 있습니다.</p> </td> </tr> <tr> <td align="center"> <b>도서 정보</b><br> <img src="result_images/도서정보.png" alt="도서 정보" width="80%"> <p>선택한 도서의 상세 정보를 보여줍니다. 제목, 저자, 가격 등 주요 정보가 포함되어 있습니다.</p> </td> <td align="center"> <b>장바구니</b><br> <img src="result_images/장바구니.png" alt="장바구니" width="80%"> <p>장바구니에 추가된 도서들을 확인할 수 있는 페이지입니다. 사용자는 도서를 삭제하거나 구매를 진행할 수 있습니다.</p> </td> </tr> <tr> <td align="center"> <b>로그인</b><br> <img src="result_images/로그인.png" alt="로그인" width="80%"> <p>기존 회원은 이메일과 비밀번호로 로그인할 수 있는 화면입니다.</p> </td> <td align="center"> <b>회원 가입</b><br> <img src="result_images/회원가입.png" alt="회원 가입" width="80%"> <p>새로운 회원이 간단한 정보를 입력하여 계정을 생성할 수 있는 화면입니다.</p> </td> </tr> </table>
+
+---
+
+## 🚀 향후 추가 예정 기능
+
+- **결제 시스템**: 실제 결제 API 연동
+- **도서 리뷰**: 사용자 리뷰 작성 및 평가 시스템
+- **추천 도서**: 사용자의 관심사 기반 도서 추천 기능
+
+---
+
 ## 📂 **파일 구조**
 
 ```plaintext
@@ -87,9 +101,3 @@ bookmarket/
     ├── processUpdateMember.php # 회원 정보 수정 처리
     ├── resultMember.php        # 회원 결과 페이지
     └── updateMember.php        # 회원 정보 수정 페이지
-🖼️ 실행 화면 예시
-<table> <tr> <td align="center"> <b>홈 화면</b><br> <img src="resources/images/home.png" alt="메인 페이지" width="80%"> <p>BookMarket의 홈 화면으로, 사용자는 추천 도서를 확인하고 원하는 도서 카테고리로 이동할 수 있습니다.</p> </td> <td align="center"> <b>도서 목록</b><br> <img src="resources/images/books.png" alt="도서 목록" width="80%"> <p>등록된 모든 도서를 한눈에 볼 수 있는 페이지입니다. 사용자는 도서를 클릭하여 상세 정보를 확인할 수 있습니다.</p> </td> </tr> <tr> <td align="center"> <b>장바구니</b><br> <img src="resources/images/cart.png" alt="장바구니" width="80%"> <p>장바구니에 추가된 도서들을 확인할 수 있는 페이지입니다. 사용자는 도서를 삭제하거나 구매를 진행할 수 있습니다.</p> </td> <td align="center"> <b>회원 가입</b><br> <img src="resources/images/signup.png" alt="회원 가입" width="80%"> <p>새로운 회원이 간단한 정보를 입력하여 계정을 생성할 수 있는 화면입니다.</p> </td> </tr> </table>
-🚀 향후 추가 예정 기능
-결제 시스템: 실제 결제 API 연동
-도서 리뷰: 사용자 리뷰 작성 및 평가 시스템
-추천 도서: 사용자의 관심사 기반 도서 추천 기능
