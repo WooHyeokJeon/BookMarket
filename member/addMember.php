@@ -33,7 +33,7 @@
 </head>
 <body class="d-flex flex-column h-100">
     <?php
-    require "../menu.php";
+    require "../menu.php"; 
     require "../dbconn.php";
     ?>
     <br>
